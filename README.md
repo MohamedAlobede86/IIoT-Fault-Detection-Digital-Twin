@@ -1,61 +1,163 @@
-IIoT Digital Twin Diagnostic Framework
-Intelligent Fault Detection for Tennessee Eastman Process (TEP)
+
+
+Explainable Hybrid Machine Learning Framework for Fault Detection in Industrial IoT Systems
+
 Overview
-This project presents an integrated framework for real-time fault diagnosis in industrial systems using a Digital Twin approach. It combines a high-performance XGBoost classifier with SHAP (SHapley Additive exPlanations) for model interpretability, all wrapped in a user-friendly JavaFX interface.
 
- Tech Stack
-Backend: Python 3.12 (Flask API).
+This repository presents an explainable hybrid machine learning framework for fault detection in Industrial Internet of Things (IIoT) environments using the Tennessee Eastman Process (TEP) benchmark dataset.
 
-Machine Learning: XGBoost, Scikit-learn, Joblib.
+The framework integrates unsupervised representation learning with supervised classification to improve fault detection reliability in complex industrial systems.
 
-Explainable AI (XAI): SHAP (SHapley Additive exPlanations).
+The proposed pipeline combines:
 
-Frontend: JavaFX (JDK 17+).
+- AutoEncoder for learning compact latent representations of normal system behavior and supporting anomaly detection through reconstruction patterns.
+- XGBoost for robust multi-class fault classification.
+- SHAP (SHapley Additive exPlanations) to provide feature-level explanations for model predictions.
 
-Research & Development: Google Colab (Python Notebook).
+A lightweight JavaFX graphical interface is provided to demonstrate how the diagnostic framework can be integrated into a monitoring environment.
 
- Project Structure
-app.py: The Flask server hosting the ML model and XAI engine.
+---
 
-Notebook.ipynb: The full research notebook containing data cleaning, preprocessing, and model training phases.
+Tech Stack
 
-model/: Contains pre-trained .pkl files (Classifier, Scaler, Encoder).
+Backend
 
-lib/: JavaFX dependencies and DLLs for system compatibility.
+- Python 3.12
+- Flask API
 
-data/: Sample TEP datasets (CSV) for testing.
+Machine Learning
 
-Start_System.bat: One-click execution script for Windows.
+- AutoEncoder (Keras / TensorFlow)
+- XGBoost
+- Scikit-learn
+- Joblib
 
-TEP-GUI.jar: The graphical user interface.
+Explainable AI (XAI)
 
- Quick Start (How to Run)
-To experience the full system, please follow these steps:
+- SHAP (SHapley Additive exPlanations)
 
-1. Download the Full Package:
+Frontend
 
-Navigate to the Releases section on the right sidebar.
+- JavaFX (JDK 17+)
 
-Download the Stable Release - Full System.zip file.
+Research & Development
 
-Extract the ZIP file to your local machine.
+- Google Colab (Python Notebook)
 
-2. Install Python Dependencies:
+---
 
-Bash
+Project Structure
 
-pip install flask xgboost shap joblib matplotlib scikit-learn
-3. Launch the Framework:
+app.py
+Flask server hosting the ML inference engine and SHAP explanation module.
 
-Double-click on Start_System.bat.
+Notebook.ipynb
+Research notebook containing data preprocessing, feature engineering,
+AutoEncoder training, and XGBoost model development.
 
-This will automatically start the Python backend and launch the JavaFX GUI.
+model/
+Contains trained models:
+- autoencoder_model.pkl
+- xgboost_classifier.pkl
+- scaler.pkl
+- encoder.pkl
 
- System Capabilities
-End-to-End Pipeline: From raw TEP data cleaning to real-time industrial fault detection.
+lib/
+JavaFX dependencies required for the graphical interface.
 
-Real-time Prediction: Detects 21+ types of industrial faults with high accuracy.
+data/
+Sample Tennessee Eastman Process (TEP) datasets in CSV format.
 
-Explainability (XAI): Provides SHAP bar plots for every prediction to explain the impact of each sensor on the diagnostic result.
+Start_System.bat
+One-click script to launch the backend and graphical interface.
 
-Automated Logging: Saves all diagnostic history into results/prediction_history.csv.
+TEP-GUI.jar
+JavaFX graphical interface for real-time diagnostic visualization.
+
+---
+
+Quick Start (How to Run)
+
+1. Download the System Package
+
+Navigate to the Releases section of this repository and download:
+
+Stable Release – Full System.zip
+
+Extract the ZIP archive to your local machine.
+
+---
+
+2. Install Python Dependencies
+
+Run the following command:
+
+pip install flask xgboost shap joblib matplotlib scikit-learn tensorflow
+
+---
+
+3. Launch the Framework
+
+Double-click:
+
+Start_System.bat
+
+This will automatically:
+
+1. Start the Python backend (Flask API).
+2. Launch the JavaFX monitoring interface.
+
+---
+
+System Capabilities
+
+Hybrid Fault Detection Pipeline
+
+Integrates AutoEncoder-based representation learning with XGBoost classification for robust industrial fault diagnosis.
+
+Multi-class Fault Identification
+
+Detects multiple industrial fault conditions in the Tennessee Eastman Process.
+
+Explainable AI Diagnostics
+
+Each prediction is accompanied by SHAP-based explanations, highlighting the sensor variables that influenced the decision.
+
+Real-Time Monitoring Interface
+
+The JavaFX interface demonstrates how the diagnostic engine can be integrated into a monitoring dashboard.
+
+Automated Logging
+
+All predictions and diagnostic results are stored in:
+
+results/prediction_history.csv
+
+---
+
+Dataset
+
+This project uses the Tennessee Eastman Process (TEP) dataset, a widely used benchmark for industrial fault diagnosis research.
+
+Reference:
+
+Downs, J. J., & Vogel, E. F. (1993).
+A plant-wide industrial process control problem.
+Computers & Chemical Engineering.
+
+---
+
+Research Context
+
+This repository accompanies the research study:
+
+"Explainable Hybrid Machine Learning Framework for Fault Detection in Industrial IoT Systems."
+
+The work explores how combining representation learning, ensemble machine learning, and explainable AI can improve transparency and reliability in industrial fault diagnosis systems.
+
+---
+
+Author
+
+Mohamed AbdulAli
+Industrial AI & IIoT Research
